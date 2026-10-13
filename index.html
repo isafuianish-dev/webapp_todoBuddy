@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo Buddy</title>
+<link rel="icon" type="image/png" href="media/favicon.png">
+<link rel="stylesheet" href="https://isafuianish-dev.github.io/webapp_cdnBuddy/css/tokens.css">
+<link rel="stylesheet" href="https://isafuianish-dev.github.io/webapp_cdnBuddy/css/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/theme-init.js" data-app="webapp_todoBuddy"></script>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="brand-icon" aria-hidden="true"><span class="icon" style="-webkit-mask-image:url(media/icon.svg);mask-image:url(media/icon.svg);"></span></span>
+      <h1>Todo Buddy</h1>
+    </div>
+    <div class="topbar-actions">
+      <button id="btnSettings" class="btn btn-ghost btn-icon" title="Settings" aria-label="Settings"></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="panel panel-lists">
+      <div class="panel-header">
+        <input type="search" id="listSearch" class="search-input" placeholder="Search" aria-label="Search lists">
+        <div class="panel-header-actions">
+          <button id="btnNewList" class="btn btn-primary">New List</button>
+          <button id="btnExportAll" class="btn btn-ghost btn-icon" title="Export all data as JSON" aria-label="Export data"></button>
+          <label class="btn btn-ghost btn-icon file-btn" title="Import data from JSON" aria-label="Import data">
+            <span class="file-btn-icon" id="fileBtnIcon"></span>
+            <input type="file" id="fileImportData" accept="application/json">
+          </label>
+        </div>
+      </div>
+      <ul id="listNav" class="list-nav"></ul>
+      <p class="empty-hint sidebar-sample-hint" id="sidebarLoadSampleHint" hidden>No lists yet. <a href="#" id="linkLoadSampleSidebar" class="link-accent">Load sample</a>.</p>
+    </aside>
+
+    <main class="panel panel-main">
+      <div class="empty-state" id="noListsState" hidden></div>
+
+      <div id="mainContent">
+        <div class="main-header">
+          <h2 class="panel-title" id="activeListTitle"></h2>
+          <button type="button" class="btn btn-primary" id="btnNewTodo">Add Todo</button>
+        </div>
+
+        <div id="todoStats" class="board-stats"></div>
+
+        <div class="toolbar">
+          <input type="search" id="todoSearch" class="search-input" placeholder="Search todos..." aria-label="Search todos">
+          <div class="view-switch" id="viewSwitch" role="group" aria-label="View">
+            <button type="button" class="view-switch-option" data-view="list" title="List view" aria-label="List view"></button>
+            <button type="button" class="view-switch-option" data-view="grid" title="Grid view" aria-label="Grid view"></button>
+            <button type="button" class="view-switch-option" data-view="waterfall" title="Waterfall view" aria-label="Waterfall view"></button>
+            <button type="button" class="view-switch-option" data-view="gantt" title="Gantt view" aria-label="Gantt view"></button>
+          </div>
+          <div class="status-toggle" id="statusToggle">
+            <button type="button" class="status-toggle-option" data-status-filter="all">All</button>
+            <button type="button" class="status-toggle-option" data-status-filter="active">Active</button>
+            <button type="button" class="status-toggle-option" data-status-filter="completed">Completed</button>
+          </div>
+          <div id="priorityFilterContainer" class="priority-filter"></div>
+          <div id="sortContainer" class="sort-filter"></div>
+        </div>
+
+        <div class="todo-list-wrap">
+          <div id="todoList" class="todo-list view-list"></div>
+          <p class="empty-hint list-empty-hint" id="emptyState" hidden></p>
+          <div id="ganttChart" class="gantt" hidden></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/utils.js"></script>
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/icons.js"></script>
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/modal.js"></script>
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/theme.js"></script>
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/settings.js"></script>
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/markdown.js"></script>
+<script src="https://isafuianish-dev.github.io/webapp_cdnBuddy/js/manual.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
